@@ -68,6 +68,11 @@ public class PizzApp extends javax.swing.JFrame {
 
         btngrpMeret.add(rdbMeret25);
         rdbMeret25.setText("25 cm");
+        rdbMeret25.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rdbMeret25ItemStateChanged(evt);
+            }
+        });
 
         btngrpMeret.add(rdbMeret32);
         rdbMeret32.setSelected(true);
@@ -270,13 +275,21 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbValaszthatoPizzakActionPerformed
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
-        meret = 0.75;
+        meret = 1;
         
         vegsoAr = pizzaAlapAr*meret+extrak;
         vegsoAr *= db;
         lblAr.setText(vegsoAr + "");
         
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
+
+    private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
+        meret = 0.75;
+        
+        vegsoAr = pizzaAlapAr*meret+extrak;
+        vegsoAr *= db;
+        lblAr.setText(vegsoAr + "");
+    }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
