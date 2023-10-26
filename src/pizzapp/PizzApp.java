@@ -18,9 +18,7 @@ public class PizzApp extends javax.swing.JFrame {
         int extra3 = 0;
         extrak = extra1+extra2+extra3;
         db = 1;
-        vegsoAr = pizzaAlapAr*meret+extrak;
-        vegsoAr *= db;
-        lblAr.setText(vegsoAr + "");
+        szamitasEsKiiras();
     }
 
     @SuppressWarnings("unchecked")
@@ -262,35 +260,35 @@ public class PizzApp extends javax.swing.JFrame {
             pizzaAlapAr = 1850;
         }
         
-        
-        meret = 1;
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
         extrak = extra1+extra2+extra3;
         
-        vegsoAr = pizzaAlapAr*meret+extrak;
-        vegsoAr *= db;
-        lblAr.setText(vegsoAr + "");
+        szamitasEsKiiras();
     }//GEN-LAST:event_cmbValaszthatoPizzakActionPerformed
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
         meret = 1;
         
-        vegsoAr = pizzaAlapAr*meret+extrak;
-        vegsoAr *= db;
-        lblAr.setText(vegsoAr + "");
+        szamitasEsKiiras();
         
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
+
+    
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
         meret = 0.75;
         
+        szamitasEsKiiras();
+    }//GEN-LAST:event_rdbMeret25ItemStateChanged
+
+    private void szamitasEsKiiras() {
         vegsoAr = pizzaAlapAr*meret+extrak;
         vegsoAr *= db;
         lblAr.setText(vegsoAr + "");
-    }//GEN-LAST:event_rdbMeret25ItemStateChanged
-
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
