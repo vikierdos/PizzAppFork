@@ -1,18 +1,24 @@
 package pizzapp;
 
 public class PizzApp extends javax.swing.JFrame {
-
+    
+    int pizzaAlapAr = -1;
+    int extrak;
+    int db = 1;
+    double vegsoAr;
+    double meret;
+    
     public PizzApp() {
         initComponents();
         
-        int pizzaAlapAr2 = 1750;
-        int meret = 1;
+        pizzaAlapAr = 1750;
+        meret = 1;
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        int extrak = extra1+extra2+extra3;
-        int db = 1;
-        int vegsoAr = pizzaAlapAr2*meret+extrak;
+        extrak = extra1+extra2+extra3;
+        db = 1;
+        vegsoAr = pizzaAlapAr*meret+extrak;
         vegsoAr *= db;
         lblAr.setText(vegsoAr + "");
     }
@@ -66,6 +72,11 @@ public class PizzApp extends javax.swing.JFrame {
         btngrpMeret.add(rdbMeret32);
         rdbMeret32.setSelected(true);
         rdbMeret32.setText("32 cm");
+        rdbMeret32.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rdbMeret32ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMeretLayout = new javax.swing.GroupLayout(pnlMeret);
         pnlMeret.setLayout(pnlMeretLayout);
@@ -232,7 +243,7 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void cmbValaszthatoPizzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbValaszthatoPizzakActionPerformed
         int pizzaIndex = cmbValaszthatoPizzak.getSelectedIndex();
-        int pizzaAlapAr = -1;
+        
         if(pizzaIndex == 0){
             pizzaAlapAr = 1550;
         }
@@ -247,16 +258,25 @@ public class PizzApp extends javax.swing.JFrame {
         }
         
         
-        int meret = 1;
+        meret = 1;
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        int extrak = extra1+extra2+extra3;
-        int db = 1;
-        int vegsoAr = pizzaAlapAr*meret+extrak;
+        extrak = extra1+extra2+extra3;
+        
+        vegsoAr = pizzaAlapAr*meret+extrak;
         vegsoAr *= db;
         lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_cmbValaszthatoPizzakActionPerformed
+
+    private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
+        meret = 0.75;
+        
+        vegsoAr = pizzaAlapAr*meret+extrak;
+        vegsoAr *= db;
+        lblAr.setText(vegsoAr + "");
+        
+    }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
