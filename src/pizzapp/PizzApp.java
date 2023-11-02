@@ -12,6 +12,7 @@ public class PizzApp extends javax.swing.JFrame {
     int extra1 = 0;
     int extra2 = 0;
     int extra3 = 0;
+    int meretsz = 32;
     
     public PizzApp() {
         initComponents();
@@ -300,6 +301,7 @@ public class PizzApp extends javax.swing.JFrame {
         meret = 1;
         
         szamitasEsKiiras();
+        meretsz = 32;
         
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
@@ -309,6 +311,7 @@ public class PizzApp extends javax.swing.JFrame {
         meret = 0.75;
         
         szamitasEsKiiras();
+        meretsz = 25;
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
@@ -357,7 +360,18 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_chbAnanaszActionPerformed
 
     private void btnRendelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendelActionPerformed
-        txaOsszesito.setText(String.format("A választott pizza:%str(%d db)\nmérete:", PizzaAlap,db));
+        String PizzaAlap = cmbValaszthatoPizzak.getItemAt(cmbValaszthatoPizzak.getSelectedIndex());
+        String kiiras = String.format("A választott pizza: %s (%d db)\nmérete: %d\nfeltétek:", PizzaAlap,db,meretsz);
+        if(extra1 == 200){
+            kiiras = String.format("%s\n - sajt",kiiras);
+        }
+        if(extra2 == 200){
+            kiiras = String.format("%s\n - hagyma",kiiras);
+        }
+        if(extra3 == 200){
+            kiiras = String.format("%s\n - ananász",kiiras);
+        }
+        txaOsszesito.setText(kiiras); 
         
     }//GEN-LAST:event_btnRendelActionPerformed
 
